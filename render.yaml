@@ -1,12 +1,10 @@
 services:
   - type: web
-    name: dc-roll-bot
+    name: bot-rolls
     env: python
-    plan: free
-    buildCommand: pip install -r requirements.txt
+    pythonVersion: 3.11.0
+    buildCommand: pip install discord.py python-dotenv flask
     startCommand: python main.py
     envVars:
       - key: DISCORD_TOKEN
         sync: false
-    healthCheckPath: /health
-    autoDeploy: true
